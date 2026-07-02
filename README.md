@@ -44,7 +44,7 @@ Plugins can interract witch the features that are provided by \_VBot. For exampl
 
 ## Tech
 
-- NodeJS
+- NodeJS (SEA)
 - typescript
 - Webcomponents
 - SQLite

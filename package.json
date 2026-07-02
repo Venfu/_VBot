@@ -2,9 +2,14 @@
   "name": "v-bot",
   "version": "1.0.0",
   "description": "Twitch bot Framework",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "build:exe": "node scripts/build-exe.js",
+    "start": "node dist/index.js",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +25,19 @@
   "bugs": {
     "url": "https://github.com/Venfu/_VBot/issues"
   },
-  "homepage": "https://github.com/Venfu/_VBot#readme"
+  "homepage": "https://github.com/Venfu/_VBot#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "pkg": "^5.8.1",
+    "tsx": "^4.20.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
 }
