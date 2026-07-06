@@ -2,6 +2,9 @@ import { app, BrowserWindow, shell } from "electron";
 import path from "node:path";
 import started from "electron-squirrel-startup";
 
+// START BACKEND
+import startBackend from "../../backend/src/main";
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
   app.quit();
@@ -67,3 +70,6 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+// Start Backend
+startBackend();
