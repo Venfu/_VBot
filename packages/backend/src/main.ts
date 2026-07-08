@@ -1,16 +1,13 @@
-import { IBot } from "./ibot.js";
 import path from "path";
-
-const bot: IBot = {};
+import { iBot } from "./ibot.js";
 
 export default async (electronApp: Electron.App) => {
-  bot.electron = {
+  iBot.electron = {
     appPath: electronApp.isPackaged
       ? path.dirname(electronApp.getPath("exe"))
       : electronApp.getAppPath(),
   };
 
-  (await import("./app.js")).init();
-  const loadedPlugins = (await import("./pluginsManager.js")).init(bot);
-  console.log(await loadedPlugins);
+  iBot.express = await (await import("./express.js")).init();
+  iBot.plugins = await (await import("./pluginsManager.js")).init();
 };
