@@ -7,6 +7,8 @@ import { MakerWix } from "@electron-forge/maker-wix";
 import { VitePlugin } from "@electron-forge/plugin-vite";
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
+import fs from "fs";
+import path from "path";
 
 const config: ForgeConfig = {
   packagerConfig: {
@@ -56,6 +58,15 @@ const config: ForgeConfig = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  hooks: {
+    postPackage: async (forgeConfig, results) => {
+      fs.cpSync(
+        path.join("plugins"),
+        path.join(results.outputPaths[0], "plugins"),
+        { recursive: true },
+      );
+    },
+  },
 };
 
 export default config;

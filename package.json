@@ -1,5 +1,5 @@
 {
-  "name": "_vbot",
+  "name": "vbot",
   "productName": "_vbot",
   "version": "1.0.0",
   "description": "Twitch bot Framework",
@@ -12,6 +12,10 @@
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx ."
   },
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Venfu/_VBot.git"
