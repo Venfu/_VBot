@@ -65,6 +65,10 @@ const config: ForgeConfig = {
         path.join(results.outputPaths[0], "plugins"),
         { recursive: true },
       );
+      fs.copyFileSync(
+        path.join(".env.tmpl"),
+        path.join(results.outputPaths[0], ".env"),
+      );
     },
   },
 };
